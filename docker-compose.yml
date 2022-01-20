@@ -37,8 +37,8 @@ services:
       PGUSER: postgres
     ports:
       - "5432:5432"
-    # volumes:
-    #   - "${PWD}/data/misc/djangoinit.sql:/docker-entrypoint-initdb.d/1-init.sql"
+    volumes:
+      - "${PWD}/data/misc/djangoinit.sql:/docker-entrypoint-initdb.d/1-init.sql"
   pgadmin:
     container_name: pgadmin_container
     image: dpage/pgadmin4:5.2
