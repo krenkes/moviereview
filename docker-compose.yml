@@ -29,7 +29,7 @@ services:
       - web
   pg:
     container_name: pg_container
-    image: 775439226894.dkr.ecr.us-east-1.amazonaws.com/moviereview:moviereview_postgres:13.2-alpine
+    image: postgres:13.2-alpine
     restart: always
     environment:
       POSTGRES_USER: postgres
@@ -41,7 +41,7 @@ services:
       - "${PWD}/data/misc/django_init.sql:/docker-entrypoint-initdb.d/1-init.sql"
   pgadmin:
     container_name: pgadmin_container
-    image: 775439226894.dkr.ecr.us-east-1.amazonaws.com/moviereview:moviereview_dpage/pgadmin4:5.2
+    image: dpage/pgadmin4:5.2
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@example.com
