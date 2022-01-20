@@ -27,29 +27,18 @@ services:
       - 8000:80
     depends_on:
       - web
-  # pg:
-
-  #     container_name: pg_container
-
-  #     image: postgres:13.2-alpine
-
-  #     restart: always
-
-  #     environment:
-
-  #         POSTGRES_USER: postgres
-
-  #         POSTGRES_HOST_AUTH_METHOD: trust
-
-  #         PGUSER: postgres
-
-  #     ports:
-
-  #         - "5432:5432"
-
-  #     volumes:
-
-  #         - "${PWD}/data/misc/init.sql:/docker-entrypoint-initdb.d/1-init.sql"
+  pg:
+    container_name: pg_container
+    image: postgres:13.2-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGUSER: postgres
+    ports:
+      - "5432:5432"
+    # volumes:
+    #   - "${PWD}/data/misc/djangoinit.sql:/docker-entrypoint-initdb.d/1-init.sql"
   pgadmin:
     container_name: pgadmin_container
     image: dpage/pgadmin4:5.2
