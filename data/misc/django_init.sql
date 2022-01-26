@@ -18,7 +18,7 @@ SET client_min_messages = warning;
 SET default_tablespace = '';
 SET default_with_oids = false;
 
-CREATE TABLE movies (
+CREATE TABLE reviews_review (
     id SERIAL,
     title TEXT NOT NULL,
     industry_rating TEXT NOT NULL,
@@ -101,7 +101,7 @@ VALUES ('kevin','1986-01-01',1), ('rachel','1985-01-01',1), ('molly','2015-01-01
 -- VALUES (1, 1, 'Whole family enjoyed', 9, 1), (1, 2, 'Graham was scared during the shark chase scene', 8, 1);
 
 
-INSERT INTO movies (title, industry_rating, theater_release_year, home_release_year, heavy_lang_index, light_lang_index, religious_lang_index, racial_lang_index)
+INSERT INTO reviews_review (title, industry_rating, theater_release_year, home_release_year, heavy_lang_index, light_lang_index, religious_lang_index, racial_lang_index)
 VALUES ('Wish Dragon', 'PG', '2021', '2021', '0000000000000000000000000000', '000000000000000010001100', '000000', '000'),
 ('Infinite', 'PG-13', '2021', '2021', '1001010100011010010000000010', '000000000000000000000000', '010100', '000'),
 ('Awake', 'TV-MA', '2021', '2021', '0000000000111010110010000010', '000000000000000000000000', '010000', '000'),

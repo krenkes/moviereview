@@ -30,7 +30,7 @@ class index(APIView):
         return Response({'reviews': queryset})
 
 
-class list_all_tutorials(APIView):
+class list_all_reviews(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'reviews/review_list.html'
 
