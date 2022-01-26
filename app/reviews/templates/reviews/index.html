@@ -2,38 +2,27 @@
 {% endblock%} {% block content%}
 <div class="container">
   <h1>Reviews</h1>
-  <ul>
+  <!-- <ul>
     {% for review in reviews %}
     <li>{{ review.title }}</li>
     {% endfor %}
-  </ul>
+  </ul> -->
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Title</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Release</th>
       </tr>
     </thead>
     <tbody>
+      {% for review in reviews %}
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <th scope="row">{{ review.title }}</th>
+        <td>{{ review.industry_rating }}</td>
+        <td>{{ review.theater_release_year }}</td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>
