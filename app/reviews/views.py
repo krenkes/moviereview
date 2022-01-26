@@ -38,6 +38,13 @@ class list_all_reviews(APIView):
         queryset = Review.objects.all()
         return Response({'reviews': queryset})
 
+class list_filtered_reviews(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'reviews/review_list.html'
+
+    def get(self, request):
+        queryset = Review.objects.filter(industry_rating="PG")
+        return Response({'reviews': queryset})
 
 @api_view(['GET', 'POST', 'DELETE'])
 def review_list(request):
