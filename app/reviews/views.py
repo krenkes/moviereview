@@ -100,8 +100,8 @@ def review_detail(request, pk):
 
 
 @api_view(['GET'])
-def review_list_published(request):
-    reviews = Review.objects.filter(published=True)
+def review_list_filter(request):
+    reviews = Review.objects.filter(industry_rating="PG")
 
     if request.method == 'GET':
         review_serializer = ReviewSerializer(reviews, many=True)
