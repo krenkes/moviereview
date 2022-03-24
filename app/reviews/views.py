@@ -120,11 +120,11 @@ def review_list_filter(request):
     reviews = Review.objects.all()
 
     industry_rating = request.GET.get('industry_rating', None)
-    if industry_rating is not None:
-        reviews= reviews.filter(industry_rating__icontains=industry_rating)
+    return JsonResponse(industry_rating, safe=False)
+    # reviews= reviews.filter(industry_rating__icontains=industry_rating)
 
-    reviews_serializer = ReviewSerializer(reviews, many=True)
-    return JsonResponse(reviews_serializer.data, safe=False)
+    # reviews_serializer = ReviewSerializer(reviews, many=True)
+    # return JsonResponse(reviews_serializer.data, safe=False)
 
     # if request.method == 'GET':
     #     review_serializer = ReviewSerializer(reviews, many=True)
