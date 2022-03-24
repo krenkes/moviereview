@@ -112,11 +112,19 @@ def review_detail(request, pk):
 
 @api_view(['GET'])
 def review_list_filter(request):
-    review_data = JSONParser().parse(request)
-    return JsonResponse(review_data, safe=False)
-    # print(review_data)
+    # review_data = JSONParser().parse(request)
+    # return JsonResponse(review_data, safe=False)
     # reviews = Review.objects.all()
-    # reviews = reviews.filter(industry_rating = review_data[reviewsindustry_rating])
+    # reviews = reviews.filter(industry_rating = request.industry_rating)
+
+    reviews = Review.objects.all()
+
+    industry_rating = request.GET.get('industry_rating', None)
+    if industry_rating is not None:
+        reviews= reviews.filter(industry_rating__icontains=industry_rating)
+
+    reviews_serializer = ReviewSerializer(reviews, many=True)
+    return JsonResponse(reviews_serializer.data, safe=False)
 
     # if request.method == 'GET':
     #     review_serializer = ReviewSerializer(reviews, many=True)
