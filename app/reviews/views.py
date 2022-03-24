@@ -112,14 +112,14 @@ def review_detail(request, pk):
 
 @api_view(['GET'])
 def review_list_filter(request):
-    # review_data = JSONParser().parse(request)
+    review_data = JSONParser().parse(request)
     # return JsonResponse(review_data, safe=False)
     # reviews = Review.objects.all()
     # reviews = reviews.filter(industry_rating = request.industry_rating)
 
     reviews = Review.objects.all()
 
-    industry_rating = request.GET.get('industry_rating', None)
+    industry_rating = review_data.GET.get('industry_rating', None)
     return JsonResponse(industry_rating, safe=False)
     # reviews= reviews.filter(industry_rating__icontains=industry_rating)
 
