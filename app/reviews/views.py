@@ -114,8 +114,8 @@ def review_detail(request, pk):
 def review_list_filter(request):
     review_data = JSONParser().parse(request)
     reviews = Review.objects.all()
-    reviews = reviews.filter(industry_rating__lt = review_data["industry_rating"])
-    if review_data["heavy_lang_index"]:
+    reviews = reviews.filter(industry_rating__lte = review_data["industry_rating"])
+    if "heavy_lang_index" in review_data:
         reviews = reviews.filter(heavy_lang_index = review_data["heavy_lang_index"])
     
     reviews_serializer = ReviewSerializer(reviews, many=True)
