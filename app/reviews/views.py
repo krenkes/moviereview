@@ -113,10 +113,8 @@ def review_detail(request, pk):
 @api_view(['GET'])
 def review_list_filter(request):
     review_data = JSONParser().parse(request)
-    data = {"hello": review_data}
-    return JsonResponse(data, safe=False)
-    # reviews = Review.objects.all()
-    # reviews = reviews.filter(industry_rating = review_data.data[industry_rating])
+    reviews = Review.objects.all()
+    reviews = reviews.filter(industry_rating = review_data["industry_rating"])
     
     # reviews_serializer = ReviewSerializer(reviews, many=True)
     # return JsonResponse(reviews_serializer.data, safe=False)
