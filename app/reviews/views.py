@@ -29,10 +29,6 @@ class index(APIView):
         queryset = Review.objects.all()
         return Response({'reviews': queryset})
 
-    def post(self, request):
-        queryset = Review.objects.all()
-        return Response({'reviews': queryset})
-
 class review_list_filter(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'reviews/review_list.html'
@@ -40,6 +36,7 @@ class review_list_filter(APIView):
     def get(self, request):
         queryset = Review.objects.all()
         return Response({'reviews': queryset})
+        
 
 
 
