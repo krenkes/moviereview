@@ -1,12 +1,11 @@
-<html>
-
-<body>
+{% extends "reviews/base.html" %} {% load static %}{% block title %} Reviews
+{% endblock%} {% block content%}
+<div class="container">
   <h1>Reviews</h1>
   <ul>
     {% for review in reviews %}
     <li>{{ review.title }}</li>
     {% endfor %}
   </ul>
-</body>
-
-</html>
+</div>
+{% endblock %} {% block jsfiles %} {% endblock jsfiles %}
