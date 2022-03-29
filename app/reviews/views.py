@@ -29,13 +29,13 @@ class index(APIView):
         queryset = Review.objects.all()
         return Response({'reviews': queryset})
 
-class review_list_filter(APIView):
-    renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'reviews/review_list.html'
+# class review_list_filter(APIView):
+#     renderer_classes = [TemplateHTMLRenderer]
+#     template_name = 'reviews/review_list.html'
 
-    def get(self, request):
-        queryset = Review.objects.all()
-        return Response({'reviews': queryset})
+#     def get(self, request):
+#         queryset = Review.objects.all()
+#         return Response({'reviews': queryset})
 
 
 
@@ -119,13 +119,13 @@ def review_list_filter(request):
     reviews_serializer = ReviewSerializer(reviews, many=True)
     return JsonResponse(reviews_serializer.data, safe=False)
 
-# class review_list_filter(APIView):
-#     renderer_classes = [TemplateHTMLRenderer]
-#     template_name = 'reviews/review_list.html'
+class review_list_filter(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'reviews/review_list.html'
 
-#     def get(self, request):
-#         queryset = Review.objects.all()
-#         return Response({'reviews': queryset})
+    def get(self, request):
+        queryset = Review.objects.all()
+        return Response({'reviews': queryset})
     # reviews = Review.objects.all()
 
     # industry_rating = review_data.GET.get('industry_rating', None)
