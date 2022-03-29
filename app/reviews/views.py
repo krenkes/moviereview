@@ -109,7 +109,7 @@ def review_detail(request, pk):
 
 
 @api_view(['GET'])
-def review_list_filter(request):
+def review_list_filter_api(request):
     review_data = JSONParser().parse(request)
     reviews = Review.objects.all()
     reviews = reviews.filter(industry_rating__lte = review_data["industry_rating"])
